@@ -9,7 +9,7 @@ public interface IAdressRepository extends IRepository<Adress,String> {
 
         public Set<Adress> getAll();
 
-
-    }
+    Set<Adress> findAll();
+}
 
 

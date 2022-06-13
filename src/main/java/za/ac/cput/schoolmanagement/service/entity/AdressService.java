@@ -1,27 +1,37 @@
 package za.ac.cput.schoolmanagement.service.entity;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
 import za.ac.cput.schoolmanagement.repository.entity.AdressRepository;
 import za.ac.cput.schoolmanagement.repository.entity.IAdressRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+
+@Service
 public class AdressService implements IAdressService {
 
     private final IAdressRepository repository;
-    private static IAdressService Serve;
 
-    private AdressService(){
-        this.repository = AdressRepository.getAdressRepository();
+
+    public AdressService(IAdressRepository repository){
+        this.repository = repository;
     }
-
-    public static IAdressService getService(){
-
-        if (Serve == null)
-            Serve = new AdressService();
-        return Serve;
-
-    }
+//    private static IAdressService Serve;
+//
+//    private AdressService(){
+//        this.repository = AdressRepository.getAdressRepository();
+//    }
+//
+//    public static IAdressService getService(){
+//
+//        if (Serve == null)
+//            Serve = new AdressService();
+//        return Serve;
+//
+//    }
 
 
     @Override
@@ -38,4 +48,11 @@ public class AdressService implements IAdressService {
     public void delete(Adress adress) {
           this.repository.delete(adress);
     }
+
+    @Override
+    public List<Adress> findAll(){
+        return (List<Adress>) this.repository.findAll();
+    }
+
+
 }

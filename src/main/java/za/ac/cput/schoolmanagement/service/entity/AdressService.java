@@ -2,12 +2,11 @@ package za.ac.cput.schoolmanagement.service.entity;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
-import za.ac.cput.schoolmanagement.repository.entity.AdressRepository;
+import za.ac.cput.schoolmanagement.factory.entityfactory.AdressFactory;
 import za.ac.cput.schoolmanagement.repository.entity.IAdressRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 
 @Service
@@ -36,12 +35,13 @@ public class AdressService implements IAdressService {
 
     @Override
     public Adress save(Adress adress) {
+        Adress nmbr = AdressFactory.build(adress.getUnitNumber(),adress.getComplexName(), adress.getStreetNumber(), adress.getStreetName(), adress.getPostalCode(), adress.getCity());
         return this.repository.save(adress);
     }
 
     @Override
     public Optional<Adress> read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s);
     }
 
     @Override

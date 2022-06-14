@@ -1,9 +1,12 @@
 package za.ac.cput.schoolmanagement.domain.entity;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+
+@Entity
 public class Adress {
-    private String unitNumber ;
+    private static String unitNumber ;
     private String complexName ;
     private String streetNumber ;
     private String streetName;

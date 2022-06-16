@@ -5,5 +5,16 @@ package za.ac.cput.schoolmanagement.factory.entityfactory;
    Date: 14 June 2022
  */
 
+import za.ac.cput.schoolmanagement.domain.entity.Student;
+import za.ac.cput.schoolmanagement.domain.entity.StudentAddress;
+import za.ac.cput.schoolmanagement.helper.HelpStrings;
+
 public class StudentFactory {
+    public static Student build(String studentId, String email, String name){
+        HelpStrings.checkStringParam("studentId", studentId);
+        HelpStrings.checkStringParam("email", email);
+        HelpStrings.checkStringParam("name", name);
+        return new Student.Builder().studentId(studentId).email(email).name(name).build();
+    }
+
 }

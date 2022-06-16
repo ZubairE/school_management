@@ -51,6 +51,11 @@ public class StudentAddress {
         }
 
         @Override
+        public int hashCode() {
+            return Objects.hash(studentId, address);
+        }
+
+        @Override
         public String toString() {
             return "Builder{" +
                     "studentId='" + studentId + '\'' +

@@ -62,6 +62,11 @@ public class Student {
         }
 
         @Override
+        public int hashCode() {
+            return Objects.hash(studentId, email, name);
+        }
+
+        @Override
         public String toString() {
             return "Builder{" +
                     "studentId='" + studentId + '\'' +

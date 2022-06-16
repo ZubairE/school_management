@@ -1,0 +1,63 @@
+package za.ac.cput.schoolmanagement.repository.entity.implSt;
+/* StudentRepositoryImpl.java
+   Student repository implementation class for student management system
+   Author: Chadrack Mbuyi Kalala (219013012)
+   Date: 14 June 2022
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import za.ac.cput.schoolmanagement.domain.entity.Student;
+import za.ac.cput.schoolmanagement.factory.entityfactory.StudentFactory;
+import za.ac.cput.schoolmanagement.repository.entity.StudentAddressRepository;
+import za.ac.cput.schoolmanagement.repository.entity.StudentRepository;
+
+public class StudentRepositoryImpl implements StudentRepository {
+    private final List<Student> studentList;
+    private static StudentRepositoryImpl STUDENT_REPOSITORY;
+
+    private StudentRepositoryImpl(){
+        this.studentList = new ArrayList<>();
+    }
+
+    public static StudentRepositoryImpl studentRepository(){
+        if(STUDENT_REPOSITORY == null)
+            STUDENT_REPOSITORY = new StudentRepositoryImpl();
+        return STUDENT_REPOSITORY;
+    }
+
+    public Student save(Student student){
+        Student.StudentMainId studentMainId = StudentFactory.build(student);
+        Optional<Student> read = read(studentMainId);
+        if (read.isPresent()){
+            delete(read.get());
+        }
+        this.studentList.add(student);
+        return student;
+    }
+
+    public Optional<Student> read(Student.StudentMainId studentMainId){
+        return this.studentList.stream().filter(g -> g.getStudentId().equalsIgnoreCase(studentMainId.getStudentId()))
+                .filter(g ->g.getStudentId().equalsIgnoreCase(studentMainId.getEmail()))
+                .findFirst();
+    }
+    //public Student update(Student student){
+        //Optional<Student> read = read(student.getStudentId(), student.getEmail());
+        //if(read.isPresent()){
+        //    delete(read.get());
+        //    save(student);
+        //}
+        //return student;
+    //}
+    public void delete(Student details){
+        this.studentList.remove(details);
+    }
+
+    public List<Student> findByStudentId(String studentId) {
+        return this.studentList.stream().filter(g -> g.getStudentId().equalsIgnoreCase(studentId))
+                .collect(Collectors.toList());
+    }
+}

@@ -53,26 +53,44 @@ public class Student {
         }
         public Student build(){return new Student(this);}
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Builder builder = (Builder) o;
-            return studentId.equals(builder.studentId) && email.equals(builder.email) && name.equals(builder.name);
+
+    }
+    public static class StudentMainId{
+        private String studentId, email;
+
+        public StudentMainId(String studentId, String email){
+            this.studentId = studentId;
+            this.email = email;
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(studentId, email, name);
+        public String getStudentId() {
+            return studentId;
         }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "studentId='" + studentId + '\'' +
-                    ", email='" + email + '\'' +
-                    ", name='" + name + '\'' +
-                    '}';
+        public String getEmail() {
+            return email;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Builder builder = (Builder) o;
+        return studentId.equals(builder.studentId) && email.equals(builder.email) && name.equals(builder.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, email, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "studentId='" + studentId + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

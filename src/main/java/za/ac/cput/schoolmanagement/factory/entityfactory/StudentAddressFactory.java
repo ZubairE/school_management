@@ -14,4 +14,8 @@ public class StudentAddressFactory {
         HelpStrings.checkStringParam("address", address);
         return new StudentAddress.Builder().studentId(studentId).address(address).build();
     }
+
+    public static StudentAddress.StudentSpecAddress build(StudentAddress studentAddress) {
+        return new StudentAddress.StudentSpecAddress (studentAddress.getAddress());
+    }
 }

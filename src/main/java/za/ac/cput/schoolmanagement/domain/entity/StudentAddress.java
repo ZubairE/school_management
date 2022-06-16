@@ -11,7 +11,7 @@ public class StudentAddress {
     private final String studentId, address;
 
     //Private constructor required
-    private StudentAddress(Builder builder){
+    public StudentAddress(Builder builder){
         this.studentId = builder.studentId;
         this.address = builder.address;
 
@@ -41,26 +41,37 @@ public class StudentAddress {
             return this;
         }
         public StudentAddress build(){return new StudentAddress(this);}
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Builder builder = (Builder) o;
-            return studentId.equals(builder.studentId) && address.equals(builder.address);
+    public static class StudentSpecAddress{
+        private String address;
+
+        public StudentSpecAddress(String address){
+            this.address = address;
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(studentId, address);
+        public String getAddress() {
+            return address;
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Builder builder = (Builder) o;
+        return studentId.equals(builder.studentId) && address.equals(builder.address);
+    }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "studentId='" + studentId + '\'' +
-                    ", address='" + address + '\'' +
-                    '}';
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, address);
+    }
+
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "studentId='" + studentId + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

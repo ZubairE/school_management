@@ -80,9 +80,6 @@ public class Adress implements Serializable {
     }
 
 
-    @Override
-    public int hashCode() {return Objects.hash(streetNumber);}
-
 
                                               //TO STRING
     @Override

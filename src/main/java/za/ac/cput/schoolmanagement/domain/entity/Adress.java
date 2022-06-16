@@ -1,11 +1,12 @@
 package za.ac.cput.schoolmanagement.domain.entity;
 
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Objects;
 
 
 @Entity
-public class Adress {
+public class Adress implements Serializable {
     private static String unitNumber ;
     private String complexName ;
     private String streetNumber ;

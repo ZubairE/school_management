@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import za.ac.cput.schoolmanagement.domain.entity.EmployeeAddress;
-import za.ac.cput.schoolmanagement.domain.factory.entityfactory.EmployeeAddressFactory;
+import za.ac.cput.schoolmanagement.factory.EmployeeAddressFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;

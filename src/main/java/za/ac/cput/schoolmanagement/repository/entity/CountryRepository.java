@@ -35,7 +35,6 @@ public class CountryRepository implements ICountryRepository {
     public Optional<Country> read(String id) {
         return this.countryList.stream()
                 .filter(c -> c.getId().equalsIgnoreCase(id))
-
                 .findFirst();
     }
 

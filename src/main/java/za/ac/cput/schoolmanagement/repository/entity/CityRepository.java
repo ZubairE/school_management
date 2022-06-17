@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CityRepository implements IRepository<City, String>{
+public class CityRepository implements ICityRepository{
     private final List<City> cityList;
     private static CityRepository CITY_REPOSITORY;
 
@@ -22,7 +22,7 @@ public class CityRepository implements IRepository<City, String>{
     }
 
     public City save(City city) {
-        Optional<City> read = read(city.getId(), city.getName(), city.getCountry());
+        Optional<City> read = read(city.getId());
         if (read.isPresent()) {
             delete(read.get());
         }
@@ -30,16 +30,8 @@ public class CityRepository implements IRepository<City, String>{
         return city;
     }
 
-    @Override
-    public Optional<City> read(String s) {
-        return Optional.empty();
-    }
-
-
-    public Optional<City> read(String id, String name, String country) {
+    public Optional<City> read(String id) {
         return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(id))
-                .filter(c -> c.getName().equalsIgnoreCase(name))
-                .filter(c -> c.getCountry().equalsIgnoreCase(country))
                 .findFirst();
     }
 

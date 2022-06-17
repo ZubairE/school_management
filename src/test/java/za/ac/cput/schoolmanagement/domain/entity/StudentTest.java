@@ -6,6 +6,8 @@ package za.ac.cput.schoolmanagement.domain.entity;
  */
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.schoolmanagement.factory.entityfactory.StudentAddressFactory;
+import za.ac.cput.schoolmanagement.factory.entityfactory.StudentFactory;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,12 +15,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class StudentTest {
 
     @Test
-    public void success(){
+    public void test(){
 
-    }
-    @Test
-    public void unsuccess(){
+        Student student = StudentFactory.build(
+                "2185496",
+                "chadrackmbuyi@gmail.com","Chad Smith");
 
+
+        System.out.println(student.toString());
+        assertNotNull(student);
     }
 
 }

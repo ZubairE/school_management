@@ -6,18 +6,22 @@ package za.ac.cput.schoolmanagement.domain.entity;
  */
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.schoolmanagement.factory.entityfactory.StudentAddressFactory;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentAddressTest {
     @Test
-    public void success(){
+    public void test(){
 
-    }
-    @Test
-    public void unsuccess(){
+        StudentAddress studentAddress = StudentAddressFactory.build(
+                "2185496",
+                "25 Chad road CAPE TOWN");
 
+
+        System.out.println(studentAddress.toString());
+        assertNotNull(studentAddress);
     }
 
 }

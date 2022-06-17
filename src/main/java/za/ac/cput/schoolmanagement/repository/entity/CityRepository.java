@@ -21,7 +21,7 @@ public class CityRepository {
     }
 
     public City save(City city) {
-        Optional<City> read = read(city.getId(), city.getName());
+        Optional<City> read = read(city.getId(), city.getName(), city.getCountry());
         if (read.isPresent()) {
             delete(read.get());
         }
@@ -29,9 +29,10 @@ public class CityRepository {
         return city;
     }
 
-    public Optional<City> read(String id, String name) {
+    public Optional<City> read(String id, String name, String country) {
         return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(id))
                 .filter(city -> city.getName().equalsIgnoreCase(name))
+                .filter(city -> city.getCountry().equalsIgnoreCase(country))
                 .findFirst();
     }
 

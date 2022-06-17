@@ -30,6 +30,12 @@ public class CityRepository implements IRepository<City, String>{
         return city;
     }
 
+    @Override
+    public Optional<City> read(String s) {
+        return Optional.empty();
+    }
+
+
     public Optional<City> read(String id, String name, String country) {
         return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(id))
                 .filter(c -> c.getName().equalsIgnoreCase(name))

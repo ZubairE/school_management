@@ -1,4 +1,4 @@
-package za.ac.cput.schoolmanagement.factory.entityfactory;
+package za.ac.cput.schoolmanagement.factory;
 
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
 import za.ac.cput.schoolmanagement.helper.HelpStrings;

@@ -8,7 +8,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
-import za.ac.cput.schoolmanagement.factory.entityfactory.AdressFactory;
+import za.ac.cput.schoolmanagement.domain.factory.entityfactory.AdressFactory;
 
 import java.util.Arrays;
 

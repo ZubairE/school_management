@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.schoolmanagement.api.AdressAPI;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
 import za.ac.cput.schoolmanagement.service.entity.AdressService;
 
@@ -18,11 +19,18 @@ import java.util.Optional;
 @Slf4j
 public class AdressController {
 
-     private final AdressService adressService;
+     private final AdressAPI api;
+    private final AdressService adressService;
 
-     @Autowired public AdressController(AdressService adressService){
-         this.adressService = adressService;
-     }
+    @Autowired
+    public AdressController(AdressAPI api, AdressService adressService) {
+        this.api = api;
+        this.adressService = adressService;
+    }
+
+    //   @Autowired public AdressController(AdressService adressService){
+   //      this.adressService = adressService;
+   ///  }
 
 
     @PostMapping("save")

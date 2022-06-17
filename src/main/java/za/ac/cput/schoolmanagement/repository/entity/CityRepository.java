@@ -1,12 +1,13 @@
 package za.ac.cput.schoolmanagement.repository.entity;
 
 import za.ac.cput.schoolmanagement.domain.entity.City;
+import za.ac.cput.schoolmanagement.repository.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CityRepository {
+public class CityRepository implements IRepository<City, String>{
     private final List<City> cityList;
     private static CityRepository CITY_REPOSITORY;
 
@@ -31,8 +32,8 @@ public class CityRepository {
 
     public Optional<City> read(String id, String name, String country) {
         return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(id))
-                .filter(city -> city.getName().equalsIgnoreCase(name))
-                .filter(city -> city.getCountry().equalsIgnoreCase(country))
+                .filter(c -> c.getName().equalsIgnoreCase(name))
+                .filter(c -> c.getCountry().equalsIgnoreCase(country))
                 .findFirst();
     }
 

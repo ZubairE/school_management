@@ -1,6 +1,11 @@
-package za.ac.cput.schoolmanagement.domain.entity;
+/**
+ * City.java
+ * City Entity for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 17 June 2022
+ */
 
-import za.ac.cput.schoolmanagement.domain.entity.Country;
+package za.ac.cput.schoolmanagement.domain.entity;
 
 public class City {
     private final String id;
@@ -53,9 +58,6 @@ public class City {
                 return new City(this);
             }
         }
-
-//    @Override
-//    public int hashCode(){return  Objects.hash(name);}
 
         @Override
         public String toString(){

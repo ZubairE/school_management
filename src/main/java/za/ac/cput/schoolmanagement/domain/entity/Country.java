@@ -1,3 +1,10 @@
+/**
+ * Country.java
+ * Country Entity for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 17 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.domain.entity;
 
 public class Country {
@@ -41,9 +48,6 @@ public class Country {
             return new Country(this);
         }
     }
-
-//    @Override
-//    public int hashCode(){return  Objects.hash(name);}
 
     @Override
     public String toString(){

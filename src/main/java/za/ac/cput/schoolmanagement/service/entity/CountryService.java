@@ -1,3 +1,10 @@
+/**
+ * CountryService.java
+ * Country Service class for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 17 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.service.entity;
 
 import java.util.Optional;

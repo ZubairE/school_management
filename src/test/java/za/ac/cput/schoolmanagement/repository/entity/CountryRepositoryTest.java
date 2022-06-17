@@ -1,3 +1,10 @@
+/**
+ * CountryRepositoryTest.java
+ * Country Repository Test class for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 17 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.repository.entity;
 
 import org.junit.jupiter.api.AfterEach;

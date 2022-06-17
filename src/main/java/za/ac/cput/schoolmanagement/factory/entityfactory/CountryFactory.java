@@ -1,3 +1,10 @@
+/**
+ * CountryFactory.java
+ * Country Factory class for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 17 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.factory.entityfactory;
 
 import za.ac.cput.schoolmanagement.domain.entity.Country;

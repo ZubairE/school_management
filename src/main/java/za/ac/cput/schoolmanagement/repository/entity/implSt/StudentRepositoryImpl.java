@@ -10,23 +10,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.schoolmanagement.domain.entity.Student;
 import za.ac.cput.schoolmanagement.factory.entityfactory.StudentFactory;
 import za.ac.cput.schoolmanagement.repository.entity.StudentAddressRepository;
 import za.ac.cput.schoolmanagement.repository.entity.StudentRepository;
-
+@Repository
 public class StudentRepositoryImpl implements StudentRepository {
     private final List<Student> studentList;
-    private static StudentRepositoryImpl STUDENT_REPOSITORY;
 
     private StudentRepositoryImpl(){
         this.studentList = new ArrayList<>();
-    }
-
-    public static StudentRepositoryImpl studentRepository(){
-        if(STUDENT_REPOSITORY == null)
-            STUDENT_REPOSITORY = new StudentRepositoryImpl();
-        return STUDENT_REPOSITORY;
     }
 
     public Student save(Student student){

@@ -5,6 +5,7 @@ package za.ac.cput.schoolmanagement.repository.entity.implSt;
    Date: 14 June 2022
  */
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.schoolmanagement.domain.entity.Student;
 import za.ac.cput.schoolmanagement.domain.entity.StudentAddress;
 import za.ac.cput.schoolmanagement.factory.entityfactory.StudentAddressFactory;
@@ -14,18 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Repository
 public class StudentAddressRepositoryImpl implements StudentAddressRepository {
     private final List<StudentAddress> studentAddressList;
-    private static StudentAddressRepositoryImpl STUDENT_ADDRESS_REPOSITORY;
 
     private StudentAddressRepositoryImpl(){
         this.studentAddressList = new ArrayList<>();
-    }
-    public static StudentAddressRepositoryImpl studentAddressRepository(){
-        if(STUDENT_ADDRESS_REPOSITORY == null)
-            STUDENT_ADDRESS_REPOSITORY = new StudentAddressRepositoryImpl();
-        return STUDENT_ADDRESS_REPOSITORY;
     }
 
     public StudentAddress save(StudentAddress studentAddress){

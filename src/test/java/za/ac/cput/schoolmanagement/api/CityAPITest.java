@@ -1,3 +1,10 @@
+/**
+ * CityAPITest.java
+ * City API Test class for School Management Assignment
+ * Author: Uwais Ali Rawoot (216217296)
+ * Date: 18 June 2022
+ */
+
 package za.ac.cput.schoolmanagement.api;
 
 import org.junit.jupiter.api.Test;

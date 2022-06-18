@@ -1,3 +1,14 @@
+
+/*
+AdressControllerTest.java
+Class handling controller tests methods
+Author : Zubair Esau (217100554)
+Date 15 June 2022
+
+ */
+
+
+
 package za.ac.cput.schoolmanagement.controller;
 
 import org.junit.jupiter.api.*;

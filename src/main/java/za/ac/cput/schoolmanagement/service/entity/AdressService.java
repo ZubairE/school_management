@@ -1,3 +1,13 @@
+
+/*
+AdressService.java
+Class handling service methods
+Author : Zubair Esau (217100554)
+Date 15 June 2022
+
+ */
+
+
 package za.ac.cput.schoolmanagement.service.entity;
 
 import org.springframework.stereotype.Service;
@@ -31,7 +41,6 @@ public class AdressService implements IAdressService {
 //        return Serve;
 //
 //    }
-
 
     @Override
     public Adress save(Adress adress) {

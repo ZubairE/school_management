@@ -1,3 +1,12 @@
+
+/*
+IAdressRepository.java
+Class handling repo methods
+Author : Zubair Esau (217100554)
+Date 15 June 2022
+
+ */
+
 package za.ac.cput.schoolmanagement.repository.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;

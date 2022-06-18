@@ -1,3 +1,14 @@
+
+/*
+AdressFactory.java
+Class handling Factory method using builder pattern
+Author : Zubair Esau (217100554)
+Date 15 June 2022
+
+ */
+
+
+
 package za.ac.cput.schoolmanagement.factory.entityfactory;
 
 import za.ac.cput.schoolmanagement.domain.entity.Adress;

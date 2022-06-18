@@ -1,3 +1,13 @@
+
+/*
+Adress.java
+Class for entity Adress
+Author : Zubair Esau (217100554)
+Date 15 June 2022
+
+ */
+
+
 package za.ac.cput.schoolmanagement.domain.entity;
 
 import javax.persistence.Entity;

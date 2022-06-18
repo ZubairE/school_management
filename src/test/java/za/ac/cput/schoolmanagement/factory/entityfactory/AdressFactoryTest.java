@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
+import za.ac.cput.schoolmanagement.domain.factory.entityfactory.AdressFactory;
 
 
 @SpringBootTest

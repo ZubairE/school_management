@@ -1,145 +1,135 @@
 /*
 Author:Ismail Watara
 Student_Number: 219018790
-Date: 10 June 2022
+Date: 18 June 2022
 Employee.java
 */
 
 
 package za.ac.cput.schoolmanagement.domain.entity;
+
+import lombok.NonNull;
+import javax.lang.model.element.Name;
 import javax.persistence.Entity;
-
 import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
 
 
-    @Entity
-    public class Employee {
+@Entity
+
+public class Employee implements Serializable {
+
+    @NonNull @Id
+    private String staffId;
+    @NonNull
+    private String email;
+    @NonNull
+    private Name name;
+
+    protected Employee(){}
+
+    public Employee(Builder builder) {
+        this.staffId = builder.staffId;
+        this.email = builder.email;
+        this.name = builder.name;
+    }
+
+    public String getStaffId() {
+        return staffId;}
+
+    public void setStaffId(String staffId){
+        this.staffId = staffId;}
+
+    public String getEmail() {
+        return email;}
 
 
-        @Id
+    public void setEmail(String email) {
+        this.email = email;}
+
+
+    public Name getName() {
+        return name;}
+
+
+    public void setName(Name name) {
+        this.name = name;}
+
+    public static class Builder {
         private String staffId;
         private String email;
-        private String firstName;
-        private String middleName;
-        private String lastName;
+        private Name name;
 
-
-        private Employee(Builder builder) {
-            this.staffId = builder.staffId;
-            this.email = builder.email;
-            this.firstName = builder.firstName;
-            this.lastName = builder.lastName;
-            this.middleName = builder.middleName;
-        }
-
-        public Employee() {
-
-
-        }
-
-        public String getStaffId() {
-            return staffId;
-        }
-
-        public void setStaffId(String staffId) {
+        public Employee.Builder setStaffId(String staffId) {
             this.staffId = staffId;
+            return this;
         }
 
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
+        public Employee.Builder setEmail(String email) {
             this.email = email;
+            return this;
+        }
+
+        public Employee.Builder setName(Name name) {
+
+
+            this.name = name;
+
+
+            return this;
 
         }
 
-        public String getFirstName() {
-            return firstName;
-        }
 
-        public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
 
-        public String getMiddleName() {
-            return middleName;
-        }
 
-        public void setMiddleName(String middleName) {
-            this.middleName = middleName;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
-
-        @Override
-        public String toString() {
-            return "Employee{" +
-                    "staffId='" + staffId + '\'' +
-                    ", email='" + email + '\'' +
-                    ", firstName='" + firstName + '\'' +
-                    ", middleName='" + middleName + '\'' +
-                    ", lastName='" + lastName + '\'' + '}';
+        public Employee.Builder copy(Employee employee){
+            this.staffId = staffId;
+            this.email = email;
+            this.name = name;
+            return this;
 
         }
 
-        public static class Builder {
-            private String staffId;
-            private String email;
-            private String firstName;
-            private String middleName;
-            private String lastName;
 
 
-            public Builder setStaffId(String staffId) {
-                this.staffId = staffId;
-                return this;
-
-            }
-
-            public Builder setEmail(String email) {
-                this.email = email;
-                return this;
-            }
-
-            public Builder setFirstName(String firstName) {
-                this.firstName = firstName;
-                return this;
-            }
-
-            public Builder setMiddleName(String middleName) {
-                this.middleName = middleName;
-                return this;
-
-            }
-
-            public Builder setLastName(String lastName) {
-                this.lastName = lastName;
-                return this;
-
-            }
+        public Employee build(){return new Employee(this);}
 
 
-            public Builder copy(Employee employee) {
-                this.staffId = employee.staffId;
-                this.email = employee.email;
-                this.firstName = employee.firstName;
-                this.middleName = employee.middleName;
-                this.lastName = employee.lastName;
-
-                return this;
-            }
-
-            public Employee build() {
-                return new Employee(this);
-            }
-
-
-        }
     }
+
+
+
+    @Override
+
+    public String toString() {
+
+
+        return "Employee{" +
+                "staffId='" + staffId + '\'' +
+                ", email='" + email + '\'' +
+                ", name=" + name +
+                '}';
+    }
+
+    @Override
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;Employee employee = (Employee) o;
+        return staffId.equals(employee.staffId)
+                && email.equals(employee.email)
+                && name.equals(employee.name);
+
+    }
+
+    @Override
+
+    public int hashCode() {
+        return Objects.hash(staffId, email, name);
+
+    }
+
+}
+

@@ -1,3 +1,9 @@
+/*
+ *NameController.java
+ * VuyolwethuKalolo
+ * 214015637
+ * 18-06-2022
+ */
 package za.ac.cput.schoolmanagement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -5,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+
 import za.ac.cput.schoolmanagement.domain.entity.Name;
 import za.ac.cput.schoolmanagement.service.entity.NameService;
 import za.ac.cput.schoolmanagement.service.entity.NameServiveImpl;

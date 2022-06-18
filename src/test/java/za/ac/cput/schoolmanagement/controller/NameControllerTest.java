@@ -1,3 +1,9 @@
+/*
+ *NameControllerTest.java
+ * VuyolwethuKalolo
+ * 214015637
+ * 18-06-2022
+ */
 package za.ac.cput.schoolmanagement.controller;
 
 import org.junit.jupiter.api.BeforeEach;

@@ -1,5 +1,12 @@
-package za.ac.cput.schoolmanagement.controller;
+/*
+AdressController.java
+Class handling controller methods
+Author : Zubair Esau (217100554)
+Date 15 June 2022
 
+ */
+
+package za.ac.cput.schoolmanagement.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,6 @@ package za.ac.cput.schoolmanagement.service.entity;
 import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.Adress;
 import za.ac.cput.schoolmanagement.factory.entityfactory.AdressFactory;
-import za.ac.cput.schoolmanagement.repository.entity.IAdressRepository;
 
 import java.util.List;
 import java.util.Optional;

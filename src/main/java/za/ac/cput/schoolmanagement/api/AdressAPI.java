@@ -1,5 +1,13 @@
-package za.ac.cput.schoolmanagement.api;
 
+/*
+AdressAPI.java
+Class for managing API methods for testing save
+Author : Zubair Esau (217100554)
+Date 16 June 2022
+
+ */
+
+package za.ac.cput.schoolmanagement.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -6,18 +6,18 @@ package za.ac.cput.schoolmanagement.controller;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.schoolmanagement.domain.entity.StudentAddress;
 import za.ac.cput.schoolmanagement.service.entity.StudentAddressService;
-import za.ac.cput.schoolmanagement.service.entity.implSt.StudentAddressServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school/student-address")
+@RequestMapping("school/student-address/")
 public class StudentAddressController {
     private final StudentAddressService studentAddressService;
 
@@ -26,22 +26,32 @@ public class StudentAddressController {
     }
 
     @PostMapping("save")
-    public StudentAddress save(StudentAddress studentAddress){
-        return studentAddressService.save(studentAddress);
+    public ResponseEntity<StudentAddress> save(@RequestBody StudentAddress studentAddress){
+        StudentAddress save = studentAddressService.save(studentAddress);
+        return ResponseEntity.ok(save);
 
     }
 
-    public Optional<StudentAddress> read(StudentAddress.StudentSpecAddress studentSpecAddress){
-        return studentAddressService.read(studentSpecAddress);
+    @GetMapping("read/{id}")
+    public ResponseEntity<StudentAddress> read(@PathVariable("id") StudentAddress.StudentSpecAddress address){
+        StudentAddress studentAddress = this.studentAddressService.read(address)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Student address not found"));
+        return ResponseEntity.ok(studentAddress);
 
     }
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable StudentAddress.StudentSpecAddress id){
+        Optional<StudentAddress> studentAddress = this.studentAddressService.read(id);
+        if (studentAddress.isPresent()) {
+            this.studentAddressService.delete(studentAddress.get());
+        }
+        return ResponseEntity.noContent().build();
 
-    public void delete(StudentAddress addressDetails){
-        this.studentAddressService.delete(addressDetails);
     }
-
-    public List<StudentAddress> findByStudentId(String studentId){
-        return this.studentAddressService.findByStudentAddressId(studentId);
+    @GetMapping("search")
+    public ResponseEntity<List<StudentAddress>> findByStudentId(String studentId){
+        List<StudentAddress> studentAddress = this.studentAddressService.findByStudentAddressId(studentId);
+        return ResponseEntity.ok(studentAddress);
 
     }
 }

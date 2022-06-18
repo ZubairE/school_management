@@ -6,8 +6,10 @@ package za.ac.cput.schoolmanagement.controller;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.schoolmanagement.domain.entity.Student;
 import za.ac.cput.schoolmanagement.service.entity.StudentService;
 
@@ -15,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("school/student")
+@RequestMapping("school/student/")
 public class StudentController {
     private final StudentService studentService;
 
@@ -24,21 +26,25 @@ public class StudentController {
     }
 
     @RequestMapping("save")
-    public Student save(Student student){
-        return studentService.save(student);
+    public ResponseEntity<Student> save(@RequestBody Student student){
+        Student save = studentService.save(student);
+        return ResponseEntity.ok(save);
 
     }
-
-    public Optional<Student> read(Student.StudentMainId studentMainId){
-        return studentService.read(studentMainId);
+    @GetMapping("read/{ID}")
+    public ResponseEntity<Student> read(@PathVariable("i")Student.StudentMainId studentId){
+        Student student = this.studentService.read(studentId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Student details not found"));
+        return ResponseEntity.ok(student);
 
     }
-
-    public void delete(Student details){
+    @DeleteMapping("delete")
+    public ResponseEntity<Void> delete(Student details){
         this.studentService.delete(details);
+        return ResponseEntity.noContent().build();
 
     }
-
+    @GetMapping("search")
     public List<Student> findByStudentId(String studentId){
         return this.studentService.findByStudentAddressId(studentId);
 

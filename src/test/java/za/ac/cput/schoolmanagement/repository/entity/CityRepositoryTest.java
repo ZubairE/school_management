@@ -24,7 +24,7 @@ class CityRepositoryTest{
 
     @BeforeEach void setUp(){
         this.city = CityFactory.build("test id", "test city", "test country");
-        this.repository = CityRepository.cityRepository();
+//        this.repository = CityRepository.cityRepository();
         City saved = this.repository.save(this.city);
         assertSame(this.city, saved);
     }

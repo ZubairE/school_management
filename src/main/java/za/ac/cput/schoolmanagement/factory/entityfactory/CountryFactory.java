@@ -11,12 +11,13 @@ import za.ac.cput.schoolmanagement.domain.entity.Country;
 import za.ac.cput.schoolmanagement.helper.HelpStrings;
 
 public class CountryFactory {
-    public static Country build(String id, String name) {
-        if (id == null || id.isEmpty())
-            throw new IllegalArgumentException("id is required");
-        if (name == null || name.isEmpty())
-            throw new IllegalArgumentException("name is required");
-        return new Country.Builder().id(id)
-                .name(name).build();
+    public static Country build(String id, String name){
+        HelpStrings.checkStringParam("id", id);
+        HelpStrings.checkStringParam("name", name);
+        return new Country.Builder().id(id).name(name).build();
+    }
+
+    public static Country.CountryName build(Country country) {
+        return new Country.CountryName (country.getId());
     }
 }

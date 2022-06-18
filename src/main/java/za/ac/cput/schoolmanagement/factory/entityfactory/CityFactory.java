@@ -8,17 +8,18 @@
 package za.ac.cput.schoolmanagement.factory.entityfactory;
 
 import za.ac.cput.schoolmanagement.domain.entity.City;
+import za.ac.cput.schoolmanagement.domain.entity.Country;
+import za.ac.cput.schoolmanagement.helper.HelpStrings;
 
 public class CityFactory {
-    public static City build(String id, String name, String country) {
-        if (id == null || id.isEmpty())
-            throw new IllegalArgumentException("id is required");
-        if (name == null || name.isEmpty())
-            throw new IllegalArgumentException("name is required");
-        if (country == null || country.isEmpty())
-            throw new IllegalArgumentException("country is required");
-        return new City.Builder().id(id)
-                .name(name)
-                .country(country).build();
+    public static City build(String id, String name, String country){
+        HelpStrings.checkStringParam("id", id);
+        HelpStrings.checkStringParam("name", name);
+        HelpStrings.checkStringParam("country", country);
+        return new City.Builder().id(id).name(name).country(country).build();
+    }
+
+    public static City.CityName build(City city) {
+        return new City.CityName (city.getId());
     }
 }

@@ -12,5 +12,6 @@ import za.ac.cput.schoolmanagement.repository.IRepository;
 import java.util.List;
 
 public interface ICountryRepository extends IRepository <Country, String> {
-    List<Country> findAll();
+    List<Country> findByCountry();
+
 }

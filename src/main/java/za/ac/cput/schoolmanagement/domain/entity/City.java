@@ -7,6 +7,8 @@
 
 package za.ac.cput.schoolmanagement.domain.entity;
 
+import java.util.Objects;
+
 public class City {
     private final String id;
     private final String name;
@@ -58,6 +60,40 @@ public class City {
                 return new City(this);
             }
         }
+    public static class CityName{
+        private String id, name, country;
+
+        public CityName(String id, String name, String country){
+            this.id = id;
+            this.name = name;
+            this.country = country;
+        }
+
+        public String getId(String id){
+            return id;
+        }
+
+        public String getName(String name){
+            return name;
+        }
+        public String getCountry(String country){
+            return country;
+        }
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Builder builder = (City.Builder) o;
+        return id.equals(builder.id) && name.equals(builder.name) && country.equals(builder.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 
         @Override
         public String toString(){

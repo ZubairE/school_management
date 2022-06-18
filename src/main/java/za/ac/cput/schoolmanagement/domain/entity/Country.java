@@ -6,6 +6,7 @@
  */
 
 package za.ac.cput.schoolmanagement.domain.entity;
+import java.util.Objects;
 
 public class Country {
 
@@ -47,6 +48,31 @@ public class Country {
         public Country build(){
             return new Country(this);
         }
+    }
+    public static class CountryName{
+        private String country;
+
+        public CountryName(String country){
+            this.country = country;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Builder builder = (Builder) o;
+        return id.equals(builder.id) && name.equals(builder.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     @Override

@@ -63,10 +63,10 @@ public class CityController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
-    public ResponseEntity<List<City>> findAll(){
-        List<City> city = this.cityService.findByCity();
-        return ResponseEntity.ok(city);
-    }
+//    @GetMapping("all")
+//    public ResponseEntity<List<City>> findAll(){
+//        List<City> city = this.cityService.findByCity();
+//        return ResponseEntity.ok(city);
+//    }
 }
 

@@ -63,9 +63,9 @@ public class CountryController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("all")
-    public ResponseEntity<List<Country>> findAll(){
-        List<Country> country = this.countryService.findByCountry();
-        return ResponseEntity.ok(country);
-    }
+//    @GetMapping("all")
+//    public ResponseEntity<List<Country>> findAll(){
+//        List<Country> country = this.countryService.findByCountry();
+//        return ResponseEntity.ok(country);
+//    }
 }

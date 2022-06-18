@@ -16,16 +16,9 @@ import java.util.Optional;
 
 public class CityRepository implements ICityRepository{
     private final List<City> cityList;
-    private static CityRepository CITY_REPOSITORY;
 
     private CityRepository() {
         this.cityList = new ArrayList<>();
-    }
-
-    public static CityRepository cityRepository() {
-        if (CITY_REPOSITORY == null)
-            CITY_REPOSITORY = new CityRepository();
-        return CITY_REPOSITORY;
     }
 
     public City save(City city) {
@@ -37,10 +30,15 @@ public class CityRepository implements ICityRepository{
         return city;
     }
 
-    public Optional<City> read(String id) {
-        return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(id))
-                .findFirst();
+    @Override
+    public Optional<City> read(String s) {
+        return Optional.empty();
     }
+
+//    public Optional<City> read(City.CityName cityName) {
+//        return this.cityList.stream().filter(c -> c.getId().equalsIgnoreCase(cityName.getCity()))
+//                .findFirst();
+//    }
 
     public void delete(City city) {
         this.cityList.remove(city);

@@ -5,6 +5,7 @@ package za.ac.cput.schoolmanagement.service.entity.implSt;
    Date: 14 June 2022
  */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.StudentAddress;
 import za.ac.cput.schoolmanagement.repository.entity.StudentAddressRepository;
 import za.ac.cput.schoolmanagement.repository.entity.implSt.StudentAddressRepositoryImpl;
@@ -13,17 +14,12 @@ import za.ac.cput.schoolmanagement.service.entity.StudentAddressService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class StudentAddressServiceImpl implements StudentAddressService{
     private final StudentAddressRepository repository;
-    private static StudentAddressService SERVICE;
 
-    private StudentAddressServiceImpl(){
-        this.repository = StudentAddressRepositoryImpl.studentAddressRepository();
-    }
-    public static StudentAddressService getService(){
-        if (SERVICE == null)
-            SERVICE = (StudentAddressService) new StudentAddressServiceImpl();
-        return SERVICE;
+    public StudentAddressServiceImpl(StudentAddressRepository repository){
+        this.repository = repository;
     }
 
     public StudentAddress save(StudentAddress studentId){

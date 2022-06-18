@@ -1,11 +1,12 @@
 package za.ac.cput.schoolmanagement.domain.entity;
 
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Objects;
 
 
 @Entity
-public class Adress {
+public class Adress implements Serializable {
     private static String unitNumber ;
     private String complexName ;
     private String streetNumber ;
@@ -80,10 +81,19 @@ public class Adress {
 
 
     @Override
-    public int hashCode() {return Objects.hash(streetNumber);}
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Adress adress = (Adress) o;
+        return postalCode == adress.postalCode && Objects.equals(complexName, adress.complexName) && Objects.equals(streetNumber, adress.streetNumber) && Objects.equals(streetName, adress.streetName) && Objects.equals(city, adress.city);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(complexName, streetNumber, streetName, postalCode, city);
+    }
 
-                                              //TO STRING
+    //TO STRING
     @Override
     public String toString() {
         return "Adress{" +

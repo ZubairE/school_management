@@ -7,24 +7,24 @@
 
 package za.ac.cput.schoolmanagement.service.entity;
 
+import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.Country;
 import za.ac.cput.schoolmanagement.repository.entity.CountryRepository;
+import za.ac.cput.schoolmanagement.repository.entity.ICountryRepository;
 import za.ac.cput.schoolmanagement.service.entity.ICountryService;
 
+@Service
 public class CountryService implements ICountryService {
     private final CountryRepository repository;
-    private static CountryService SERVICE;
 
-    private CountryService (){
-        this.repository = CountryRepository.countryRepository();
+    public CountryService (CountryRepository repository){
+        this.repository = repository;
     }
 
-    private static CountryService getService(){
-        if (SERVICE == null)
-            SERVICE = new CountryService();
-        return SERVICE;
-    }
+
     @Override
     public Country save(Country country){
         return this.repository.save(country);
@@ -39,4 +39,9 @@ public class CountryService implements ICountryService {
     public void delete(Country country){
         this.repository.delete(country);
     }
+
+//    @Override
+//    public List<Adress> findAll(){
+//        return (List<Country>) this.repository.findAll();
+//    }
 }

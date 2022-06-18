@@ -7,24 +7,20 @@
 
 package za.ac.cput.schoolmanagement.service.entity;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.schoolmanagement.domain.entity.City;
 import za.ac.cput.schoolmanagement.repository.entity.CityRepository;
 
 import java.util.Optional;
 
+@Service
 public class CityService implements ICityService{
     private final CityRepository repository;
-    private static CityService SERVICE;
 
-    private CityService (){
-        this.repository = CityRepository.cityRepository();
+    private CityService (CityRepository repository){
+        this.repository = repository;
     }
 
-    private static CityService getService(){
-        if (SERVICE == null)
-            SERVICE = new CityService();
-        return SERVICE;
-    }
     @Override
     public City save(City city){
         return this.repository.save(city);

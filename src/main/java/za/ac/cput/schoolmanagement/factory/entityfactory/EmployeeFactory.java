@@ -1,35 +1,42 @@
 /*
 Author:Ismail Watara
 Student_Number: 219018790
-Date: 10 June 2022
+Date: 18 June 2022
 EmployeeFactory.java
 */
 
 
 package za.ac.cput.schoolmanagement.factory.entityfactory;
+
 import za.ac.cput.schoolmanagement.domain.entity.Employee;
 import za.ac.cput.schoolmanagement.helper.HelpStrings;
+
+import javax.lang.model.element.Name;
+
+
 
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee(String staffId, String email, String firstName, String middleName, String lastName) {
 
-            HelpStrings.checkStringParam("staffId", staffId);
-            HelpStrings.checkStringParam("email", email);
-            HelpStrings.checkStringParam("firstName", firstName);
-            HelpStrings.checkStringParam("middleName", middleName);
-            HelpStrings.checkStringParam("lastName", lastName);
+    public static Employee createEmployee(String staffId, String email, Name name) {
+        HelpStrings.checkingStringParam("staffId", staffId);
+        HelpStrings.checkingEmailParam("email", email);
+        HelpStrings.checkingEntityParam("name", name);
 
-            return new Employee.Builder()
-                    .setStaffId(staffId)
-                    .setEmail(email)
-                    .setFirstName(firstName)
-                    .setMiddleName(middleName)
-                    .setLastName(lastName)
-                    .build();
 
-        }
+        Employee employee = new Employee.Builder()
+                .setStaffId(staffId)
+                .setEmail(email)
+                .setName(name)
+                .build();
 
+        return employee;
 
     }
+
+    public static Employee build(String staffId, String email, Name name) {
+        return null;
+    }
+
+}
